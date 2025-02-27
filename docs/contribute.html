@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Join the open-source JWTPlus project and contribute to enterprise-level JWT token management. Whether you're a developer or a non-technical contributor, there are many ways to help, from coding and testing to documentation and translations." />
+    <meta name="keywords" content="JWTPlus, open-source JWT, contribute to JWTPlus, Golang project, JWT management, makefile, Docker, GitHub contributions, documentation, JWT security, token lifecycle" />
+    <title>Contribute to JWTPlus - Enhance the Enterprise JWT Management Platform</title>
+    <meta property="og:title" content="Contribute to JWTPlus - Enhance the Enterprise JWT Management Platform"/>
+    <meta property="og:description" content="Join the open-source JWTPlus project and contribute to enterprise-level JWT token management. Whether you're a developer or a non-technical contributor, there are many ways to help, from coding and testing to documentation and translations."/>
+    <meta property="og:url" content="https://jwtplus.com"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/code.css" />
+    <link rel="stylesheet" href="../css/github-dark.min.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="../images/logo.png" alt="JWTPlus" height="50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/jwtplus/jwtplus"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+      <div class="row w-100">
+        <div class="col mt-5 text-start">
+            <h1 class="text-center">Contributing to JWTPlus</h1>
+            <p>Thank you for your interest in contributing to JWTPlus! Whether you're a seasoned developer or someone looking to contribute in other ways, we welcome all kinds of support. JWTPlus is an enterprise-ready JWT management platform built with Golang. Below, you'll find all the necessary steps to get started.</p>
+
+            <h4 class="my-4 p-1 border-bottom">For Non-Technical Contributions</h4>
+            <p>Even if you're not a developer, you can contribute by:</p>
+            <ul>
+                <li>Writing and improving documentation (<a target="_blank" href="https://github.com/jwtplus/jwtplus.github.io">doc repo</a>)</li>
+                <li>Translating documentation into different languages</li>
+                <li>Reporting bugs and suggesting features</li>
+            </ul>
+
+            <h4 class="my-4 p-1 border-bottom">For Technical Contributions</h4>
+
+            <h5>Prerequisites</h5>
+            <p>Before contributing, ensure you have the following installed on your system:</p>
+            <ul>
+                <li>Golang (Go 1.19+ recommended)</li>
+                <li>Make (to manage migrations and other tasks)</li>
+                <li>Docker (optional but useful for testing and running services)</li>
+            </ul>
+
+            <h5 class="my-4 p-1 border-bottom">1. Clone the Repository</h5>
+            <p>Start by cloning the JWTPlus GitHub repository:</p>
+            <pre><code class="language-shell">git clone https://github.com/jwtplus/jwtplus.git
+cd jwtplus</code></pre>
+
+            <h5 class="my-4 p-1 border-bottom">2. Configure JWTPlus</h5>
+            <p>JWTPlus requires two configuration files in development: <code>jwtplus.yaml</code> and <code>dev.env</code></p>
+            <p>Both files are present on the top level of your source code folder.</p>
+
+            <p>Content of <code>jwtplus.yaml</code></p>
+            <pre><code class="language-shell">debug: false
+server:
+    ip: 0.0.0.0
+    port: 2025
+db:
+    location: 127.0.0.1
+    port: 3306
+    username: jwtengine
+    password: 123456
+    dbname: jwtengine</code></pre>
+
+            <p>Content of <code>dev.env</code></p>
+            <pre><code class="language-shell">DB_USER=jwtengine
+DB_PASSWORD=123456
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_NAME=jwtengine
+TEST_DB_USER=testuser
+TEST_DB_PASSWORD=testpass
+TEST_DB_HOST=127.0.0.1
+TEST_DB_PORT=3306
+TEST_DB_NAME=testdb</code></pre>
+
+            <h5 class="my-4 p-1 border-bottom">3. Start database using docker compose</h5>
+            <p>Run the below command to start the database MySQL container, which will also include phpMyAdmin for easy database management.</p>
+            <p>Have a look at docker-compose.yaml file for more information. It's available in the top-level folder of your cloned source code.</p>
+            <pre><code class="language-shell">docker compose up -d</code></pre>
+            <p>This command will start  and </p>
+            <ul>
+              <li>MySql database service at <code>127.0.0.0:3306</code></li>
+              <li>phpMyAdmin at <code>127.0.0.1:8080</code></li>
+            </ul>
+
+            <p>Security Tip: Avoid using weak passwords like 123456. Instead, generate a strong password and store it securely.</p>
+
+            <h5 class="my-4 p-1 border-bottom">4. Import the tables (run only once)</h5>
+            <p>The codes will import all the tables and generate the root key by executing the below command. Please be sure to note down the root key, as it's needed for all root-based API calls.</p>
+            <pre><code class="language-shell">go run main.go install</code></pre>
+
+            <h5 class="my-4 p-1 border-bottom">5. Start the JWTPlus services</h5>
+            <p>Use the following command to start the JWTPlus. You are now all set and you can start the coding.</p>
+            <pre><code class="language-shell">make run</code></pre>
+
+            <h5 class="my-4 p-1 border-bottom">Submitting a Pull Request</h5>
+            <ul>
+                <li>Fork the repository.</li>
+                <li>Create a new branch (git checkout -b your-branch-name).</li>
+                <li>Make your changes and commit them (git commit -m "Your message").</li>
+                <li>Push the changes (git push origin your-branch-name).</li>
+                <li>Open a pull request on GitHub.</li>
+            </ul>
+
+            <h5 class="my-4 p-1 border-bottom">Join the Community</h5>
+            <p>For discussions and support, connect with the JWTPlus community on GitHub: <a href="https://github.com/jwtplus/jwtplus/discussions" target="_blank">JWTPlus GitHub Repository</a></p>
+
+            <h5 class="my-4 p-1 border-bottom">Quick Commands</h5>
+            <p>The <code>make</code> file consists of the command which is needed to help you in your development. Below are the commands while working on the JWTPlus codes.</p>
+
+            <p>1. Create a New Migration</p>
+            <pre><code class="language-shell">make create-migration name={your_migration_name}</code></pre>
+            <p>2. Generate SQLC code of your SQL queries</p>
+            <pre><code class="language-shell">make sqlc-generate</code></pre>
+            <p>3. Apply Migrations on development db</p>
+            <pre><code class="language-shell">make migrate-up</code></pre>
+            <p>4. Apply Migrations on test db</p>
+            <pre><code class="language-shell">make migrate-test-up</code></pre>
+            <p>5. Rollback Last Migration on development db</p>
+            <pre><code class="language-shell">make migrate-down</code></pre>
+            <p>6. Rollback Last Migration on test db</p>
+            <pre><code class="language-shell">make migrate-test-down</code></pre>
+            <p>7. To run tests</p>
+            <pre><code class="language-shell">make test</code></pre>
+            <p>8. To run tests with coverage:</p>
+            <pre><code class="language-shell">make test-coverage</code></pre>
+            <p>9. To run app</p>
+            <pre><code class="language-shell">make run</code></pre>
+            <p>10. To build production app</p>
+            <pre><code class="language-shell">make build</code></pre>
+            <p>11. For performance analysis, use:</p>
+            <pre><code class="language-shell">make benchmark</code></pre>
+        </div>
+    </div>
+  </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-5 text-body-secondary">
+        <div class="row w-100">
+          <div class="col-3">
+            <a
+              class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+              href="/"
+              aria-label="Bootstrap"
+            >
+              <img src="../images/logo.png" alt="" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">Currently v1.0</li>
+            </ul>
+          </div>
+          <div class="col-6 offset-3 mb-3">
+            <div class="row">
+              <div class="col-2 mb-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                  <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col-6 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html"
+                      >Manual Install</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/explaining-config.html"
+                      >Configurations</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 mb-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/issues"
+                      target="_blank"
+                      rel="noopener"
+                      >Issues</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/discussions"
+                      target="_blank"
+                      rel="noopener"
+                      >Discussions</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://jwtplus.com/docs/contribute.html"
+                      target="_blank"
+                      >Contributions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="../js/bs.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

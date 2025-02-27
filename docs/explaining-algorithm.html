@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore the benchmarks and insights on using RSA, RSA-PSS, and ECDSA algorithms for signing JWTs. Understand the trade-offs between security and performance for your use case." />
+    <meta name="keywords" content="JWT signing algorithms, RSA vs ECDSA, JWT security, JWT RSA-PSS, ECDSA performance, JWT algorithms explained, JWT signature benchmarks" />
+    <title>Choosing the Best Algorithm for JWT Signing: RSA, RSA-PSS, and ECDSA Explained | JWTPlus</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta property="og:title" content="Choosing the Best Algorithm for JWT Signing: RSA, RSA-PSS, and ECDSA Explained | JWTPlus"/>
+    <meta property="og:description" content="Explore the benchmarks and insights on using RSA, RSA-PSS, and ECDSA algorithms for signing JWTs. Understand the trade-offs between security and performance for your use case."/>
+    <meta property="og:url" content="https://jwtplus.com"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="../images/logo.png" alt="JWTPlus" height="50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/jwtplus/jwtplus"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+      <div class="row w-100">
+        <div class="col mt-5 text-start">
+            <h1 class="text-center">Choosing the Right JWT Signing Algorithm: RSA, RSA-PSS, and ECDSA Performance and Security</h1>
+            <ol>
+                <li><a href="#intro">Introduction: The Importance of JWT Security</a></li>
+                <li><a href="#rsa">RSA Algorithm for JWT Signing</a></li>
+                <li><a href="#rsapss">RSA-PSS: A Secure Alternative to RSA</a></li>
+                <li><a href="#ecdsa">ECDSA: The Efficient Choice for JWT Signing</a></li>
+                <li><a href="#benchmark">Benchmarking JWT Signing Algorithms</a></li>
+                <li><a href="#choose-what">Which Algorithm Should You Choose for Your JWT?</a></li>
+            </ol>
+
+            <h4 class="my-4 p-1 border-bottom" id="intro">Introduction: The Importance of JWT Security</h4>
+            <p>When securing communication with JSON Web Tokens (JWTs), selecting the right signing algorithm is essential. JWTs can be signed using various cryptographic algorithms, each offering different performance characteristics and security levels. In this guide, we will examine RSA, RSA-PSS, and ECDSA algorithms for JWT signing, with an emphasis on their performance as shown by our benchmarks. This will help you choose the most suitable algorithm based on your use case.</p>
+            
+            <h4 class="my-4 p-1 border-bottom" id="rsa">RSA Algorithm for JWT Signing</h4>
+            <p>RSA (Rivest-Shamir-Adleman) is a widely used asymmetric encryption algorithm that relies on a public-private key pair. RSA is known for its strong security but tends to be slower and more memory-intensive compared to newer algorithms.</p>
+            <ul>
+                <li>Advantages:
+                    <ul>
+                        <li>RSA is a highly secure and widely supported algorithm for JWT signing.</li>
+                        <li>It is well-documented and has been trusted for decades.</li>
+                    </ul>
+                </li>
+                <li>
+                    Performance (based on benchmarks):
+                    <ul>
+                        <li>RSA's performance is generally slower than other algorithms, especially as the key size increases. For example:
+                            <ul>
+                                <li>RS256 (2048-bit RSA): 0.130 seconds per operation, consuming 2.87 MB of memory with 7,579 allocations.</li>
+                                <li>RS384 (3072-bit RSA): 0.093 seconds per operation with 1.99 MB memory usage.</li>
+                                <li>RS512 (4096-bit RSA): A significant performance drop to 1.519 seconds with 9.26 MB memory usage.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4 class="my-4 p-1 border-bottom" id="rsapss">RSA-PSS: A Secure Alternative to RSA</h4>
+            <p>RSA-PSS (Probabilistic Signature Scheme) is an enhancement to the RSA algorithm. It introduces randomness in the signature creation process, improving security and reducing susceptibility to certain types of cryptographic attacks.</p>
+            <ul>
+                <li>Advantages:
+                    <ul>
+                        <li>RSA-PSS offers enhanced security over traditional RSA by incorporating a probabilistic component into the signing process.</li>
+                        <li>It mitigates potential vulnerabilities in RSA and is considered more resistant to specific attacks.</li>
+                    </ul>
+                </li>
+                <li>
+                    Performance (based on benchmarks):
+                    <ul>
+                        <li>RSA-PSS tends to perform similarly to RSA, although there is a slight overhead due to the introduction of randomness:
+                            <ul>
+                                <li>PS256: 0.119 seconds per operation with 2.66 MB memory usage.</li>
+                                <li>PS384: 0.115 seconds with 2.56 MB memory usage.</li>
+                                <li>PS512: 0.757 seconds, consuming 4.41 MB of memory.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4 class="my-4 p-1 border-bottom" id="ecdsa">ECDSA: The Efficient Choice for JWT Signing</h4>
+            <p>ECDSA (Elliptic Curve Digital Signature Algorithm) is based on elliptic curve cryptography (ECC). It offers strong security with smaller key sizes compared to RSA, leading to better performance in terms of both speed and memory usage.</p>
+            <ul>
+                <li>Advantages:
+                    <ul>
+                        <li>ECDSA is much more efficient than RSA in terms of performance and memory consumption.</li>
+                        <li>It provides equivalent security with smaller key sizes, making it ideal for performance-sensitive applications.</li>
+                    </ul>
+                </li>
+                <li>
+                    Performance (based on benchmarks):
+                    <ul>
+                        <li>ECDSA shows significantly faster signing times and uses less memory compared to RSA:
+                            <ul>
+                                <li>ES256: Only 0.0000288 seconds per operation, consuming 7.7 KB of memory with 109 allocations.</li>
+                                <li>ES384: 0.000152 seconds with 9.07 KB of memory.</li>
+                                <li>ES512: 0.000441 seconds, using 10.7 KB of memory.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4 class="my-4 p-1 border-bottom" id="benchmark">Benchmarking JWT Signing Algorithms</h4>
+            <p>Here's a quick summary of the benchmark data showing the performance of each JWT signing algorithm in terms of average time per operation (ns/op), memory usage (B/op), and number of allocations (allocs/op):</p>
+            
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Benchmark</th>
+                    <th>Iterations</th>
+                    <th>Time per Operation (ns)</th>
+                    <th>Time per Operation (seconds)</th>
+                    <th>Memory per Operation (bytes)</th>
+                    <th>Allocations per Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>RS256</td>
+                    <td>9</td>
+                    <td>129748276 ns</td>
+                    <td>0.130</td>
+                    <td>2878544</td>
+                    <td>7579</td>
+                  </tr>
+                  <tr>
+                    <td>RS384</td>
+                    <td>12</td>
+                    <td>92834382 ns</td>
+                    <td>0.093</td>
+                    <td>1986794</td>
+                    <td>5362</td>
+                  </tr>
+                  <tr>
+                    <td>RS512</td>
+                    <td>2</td>
+                    <td>1519434574 ns</td>
+                    <td>1.519</td>
+                    <td>1.5194</td>
+                    <td>15141</td>
+                  </tr>
+                  <tr>
+                    <td>PS256</td>
+                    <td>13</td>
+                    <td>119313420 ns</td>
+                    <td>0.119</td>
+                    <td>2659820</td>
+                    <td>7047</td>
+                  </tr>
+                  <tr>
+                    <td>PS384</td>
+                    <td>19</td>
+                    <td>115224508 ns</td>
+                    <td>0.115</td>
+                    <td>2562311</td>
+                    <td>6788</td>
+                  </tr>
+                  <tr>
+                    <td>PS512</td>
+                    <td>4</td>
+                    <td>757052072 ns</td>
+                    <td>0.757</td>
+                    <td>4413330</td>
+                    <td>7352</td>
+                  </tr>
+                  <tr>
+                    <td>ES256</td>
+                    <td>43126</td>
+                    <td>28835 ns</td>
+                    <td>0.0000288</td>
+                    <td>7708</td>
+                    <td>109</td>
+                  </tr>
+                  <tr>
+                    <td>ES384</td>
+                    <td>7144</td>
+                    <td>152001 ns</td>
+                    <td>0.000152</td>
+                    <td>9067</td>
+                    <td>125</td>
+                  </tr>
+                  <tr>
+                    <td>ES512</td>
+                    <td>2554</td>
+                    <td>440897 ns</td>
+                    <td>0.000441</td>
+                    <td>10748</td>
+                    <td>126</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">Benchmark test took 26.596s to complete</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+
+            <h4 class="my-4 p-1 border-bottom" id="choose-what">Which Algorithm Should You Choose for Your JWT?</h4>
+            <ul>
+                <li>If performance is your priority: ECDSA (ES256) is the clear winner. It provides fast signing times (0.0000288 seconds/op) and low memory usage (7.7 KB).</li>
+                <li>If maximum security is your priority: RSA-PSS is the better choice over standard RSA. It introduces extra security but at a minor performance cost.</li>
+                <li>If you need broad compatibility and a well-known algorithm: RSA (RS256) remains widely supported but comes at a higher computational and memory cost. It performs at 0.130 seconds/op, consuming 2.87 MB of memory.</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-5 text-body-secondary">
+        <div class="row w-100">
+          <div class="col-3">
+            <a
+              class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+              href="/"
+              aria-label="Bootstrap"
+            >
+              <img src="../images/logo.png" alt="" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">Currently v1.0</li>
+            </ul>
+          </div>
+          <div class="col-6 offset-3 mb-3">
+            <div class="row">
+              <div class="col-2 mb-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                  <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col-6 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html"
+                      >Manual Install</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/explaining-config.html"
+                      >Configurations</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 mb-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/issues"
+                      target="_blank"
+                      rel="noopener"
+                      >Issues</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/discussions"
+                      target="_blank"
+                      rel="noopener"
+                      >Discussions</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://jwtplus.com/docs/contribute.html"
+                      target="_blank"
+                      >Contributions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

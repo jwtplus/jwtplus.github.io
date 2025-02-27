@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Before installing JWTPlus, ensure your system meets the required hardware and software specifications, including supported OS, database, and network settings for optimal performance." />
+    <meta name="keywords" content="JWTPlus system requirements, JWTPlus installation, server requirements, JWTPlus hardware requirements, JWTPlus software prerequisites, install JWTPlus" />
+    <title>System Requirements for JWTPlus Installation</title>
+    <meta property="og:title" content="System Requirements for JWTPlus Installation"/>
+    <meta property="og:description" content="Before installing JWTPlus, ensure your system meets the required hardware and software specifications, including supported OS, database, and network settings for optimal performance."/>
+    <meta property="og:url" content="https://jwtplus.com"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/code.css" />
+    <link rel="stylesheet" href="../css/github-dark.min.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="../images/logo.png" alt="JWTPlus" height="50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/jwtplus/jwtplus"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+      <div class="row w-100">
+        <div class="col mt-5 text-start">
+            <h1 class="text-center">System Requirements for JWTPlus Installation</h1>
+            <p class="text-center text-muted">Before installing JWTPlus, ensure your system meets the minimum hardware and software requirements. This ensures smooth operation, high performance, and security.</p>
+            
+            <h3 class="my-4 p-1 border-bottom">Minimum System Requirements</h3>
+
+            <h4 class="my-4 p-1 border-bottom">1. Hardware Requirements</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Minimum Requirement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CPU</td>
+                        <td>Modern Intel, AMD, or ARM processor</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>At least 1GB</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>Minimum 4GB free space</td>
+                    </tr>
+                    <tr>
+                        <td>Network</td>
+                        <td>Internet access for SSL certificate provisioning (optional for private hosting)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4 class="my-4 p-1 border-bottom">2. Software Requirements</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Minimum Requirement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Operating System</td>
+                        <td>Minimal Linux Server OS (Debian, Ubuntu, CentOS, Alpine, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>MySQL or MariaDB (auto-installed if missing)</td>
+                    </tr>
+                    <tr>
+                        <td>Web Server</td>
+                        <td>No additional web server required</td>
+                    </tr>
+                    <tr>
+                        <td>Dependencies</td>
+                        <td>JWTPlus does not require external packages</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="my-4 p-1 border-bottom">3. Network & Security</h4>
+            <ol>
+                <li>
+                    <b>Public Hosting:</b>
+                    <ol>
+                        <li>A public IP address</li>
+                        <li>Root access to bind services on ports 80 & 443</li>
+                        <li>A domain name to define the software endpoint</li>
+                        <li>An SSL certificate (auto-assigned via Let's Encrypt)</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <b>Private Hosting:</b>
+                    <ol>
+                        <li>Root access is required to register services in the system</li>
+                    </ol>
+                </li>
+            </ol>
+
+            <h3 class="my-4 p-1 border-bottom">Notes</h3>
+            <ol>
+                <li>JWTPlus auto-installs MySQL/MariaDB if not already available.</li>
+                <li>A minimal Linux environment is recommended for performance.</li>
+                <li>If deploying in a high-availability environment, ensure load balancers and database clusters are configured accordingly.</li>
+            </ol>
+        </div>
+    </div>
+  </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-5 text-body-secondary">
+        <div class="row w-100">
+          <div class="col-3">
+            <a
+              class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+              href="/"
+              aria-label="Bootstrap"
+            >
+              <img src="../images/logo.png" alt="" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">Currently v1.0</li>
+            </ul>
+          </div>
+          <div class="col-6 offset-3 mb-3">
+            <div class="row">
+              <div class="col-2 mb-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                  <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col-6 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html"
+                      >Manual Install</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/explaining-config.html"
+                      >Configurations</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 mb-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/issues"
+                      target="_blank"
+                      rel="noopener"
+                      >Issues</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/discussions"
+                      target="_blank"
+                      rel="noopener"
+                      >Discussions</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://jwtplus.com/docs/contribute.html"
+                      target="_blank"
+                      >Contributions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="../js/bs.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/go.min.js"></script>
+  <script src="../js/languages/java.min.js"></script>
+  <script src="../js/languages/javascript.min.js"></script>
+  <script src="../js/languages/php.min.js"></script>
+  <script src="../js/languages/python.min.js"></script>
+  <script src="../js/languages/shell.min.js"></script>
+  <script src="../js/languages/json.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

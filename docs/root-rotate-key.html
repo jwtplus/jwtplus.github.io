@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Rotate the root key securely to maintain strong encryption practices and prevent key compromise. This API generates a new root key while preserving system integrity." />
+    <meta name="keywords" content="JWTPlus, Project API, List Projects, API Documentation, JWTPlus API" />
+    <title>Rotate Root Key | JWTPlus</title>
+    <meta property="og:title" content="Rotate Root Key | JWTPlus"/>
+    <meta property="og:description" content="Rotate the root key securely to maintain strong encryption practices and prevent key compromise. This API generates a new root key while preserving system integrity."/>
+    <meta property="og:url" content="https://jwtplus.com"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/code.css" />
+    <link rel="stylesheet" href="../css/github-dark.min.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="../images/logo.png" alt="JWTPlus" height="50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/jwtplus/jwtplus"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+      <div class="row w-100">
+        <div class="col mt-5 text-start">
+            <h1 class="text-center">Rotate Root Key</h1>
+            <p class="text-center text-muted">This API generates a new root key while preserving system integrity.</p>
+            
+            <h3 class="my-4">Endpoint</h3>
+            <pre class="p-3 border rounded">GET /root/rotate</pre>
+            
+            <h3 class="my-4">Headers</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>The <code>root-key</code> of the project.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="my-4">Example Request</h3>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="request-curl" data-bs-toggle="tab" data-bs-target="#curl" type="button" role="tab" aria-controls="curl" aria-selected="true">
+                      CURL
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="request-node" data-bs-toggle="tab" data-bs-target="#node" type="button" role="tab" aria-controls="node" aria-selected="false">
+                      NodeJS
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="request-python" data-bs-toggle="tab" data-bs-target="#python" type="button" role="tab" aria-selected="false">
+                      Python
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="request-php" data-bs-toggle="tab" data-bs-target="#php" type="button" role="tab" aria-selected="false">
+                      PHP
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="request-go" data-bs-toggle="tab" data-bs-target="#go" type="button" role="tab" aria-selected="false">
+                      Go
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="request-java" data-bs-toggle="tab" data-bs-target="#java" type="button" role="tab" aria-selected="false">
+                    Java
+                </button>
+            </li>
+          </ul>
+          
+          <div class="tab-content border-bottom border-start border-end rounded p-3" id="myTabContent">
+              <div class="tab-pane fade show active" id="curl" role="tabpanel" aria-labelledby="home-tab">
+                <pre><code class="language-console">curl --request GET \
+--url http://{{you-endpoint}}:{{your-port}}/root/rotate \
+--header 'Authorization: {{root-key}}'</code></pre>
+              </div>
+              <div class="tab-pane fade" id="node" role="tabpanel" aria-labelledby="profile-tab">
+                  <pre><code class="language-javascript">const request = require('request');
+
+const options = {
+    method: 'GET',
+    url: 'http://{{you-endpoint}}:{{your-port}}/root/rotate',
+    headers: {Authorization: '{{root-key}}'}
+};
+
+request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+
+    console.log(body);
+});</code></pre>
+              </div>
+              <div class="tab-pane fade" id="python" role="tabpanel" aria-labelledby="contact-tab">
+                <pre><code class="language-python">import requests
+
+url = "http://{{you-endpoint}}:{{your-port}}/root/rotate"
+
+headers = {"Authorization": "{{root-key}}"}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())</code></pre>
+              </div>
+
+              <div class="tab-pane fade" id="php" role="tabpanel">
+                <pre><code class="language-php">&lt;?php
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('GET', 'http://{{you-endpoint}}:{{your-port}}/root/rotate', [
+    'headers' => [
+    'Authorization' => '{{root-key}}',
+    ],
+]);
+
+echo $response->getBody();</code></pre>
+              </div>
+
+              <div class="tab-pane fade" id="go" role="tabpanel">
+                <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "net/http"
+    "io"
+)
+
+func main() {
+
+    url := "http://{{you-endpoint}}:{{your-port}}/root/rotate"
+
+    req, _ := http.NewRequest("GET", url, nil)
+
+    req.Header.Add("Authorization", "{{root-key}}")
+
+    res, _ := http.DefaultClient.Do(req)
+
+    defer res.Body.Close()
+    body, _ := io.ReadAll(res.Body)
+
+    fmt.Println(res)
+    fmt.Println(string(body))
+
+}</code></pre>
+              </div>
+              <div class="tab-pane fade" id="java" role="tabpanel">
+                <pre><code class="language-java">AsyncHttpClient client = new DefaultAsyncHttpClient();
+client.prepare("GET", "http://{{you-endpoint}}:{{your-port}}/root/rotate")
+    .setHeader("Authorization", "{{root-key}}")
+    .execute()
+    .toCompletableFuture()
+    .thenAccept(System.out::println)
+    .join();
+
+client.close();</code></pre>
+              </div>
+          </div>
+            <h3 class="my-4">Example Success Response</h3>
+            <pre class="p-3 border rounded"><code class="language-javascript">{
+"new-key": "YOUR-NEW-ROOT-KEY"
+}</code></pre>
+            
+            <h3 class="my-4">Response Fields</h3>
+            <p>The response contains a new root key.</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>new-key</td>
+                        <td>string</td>
+                        <td>A new root key</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+            <h3 class="my-4">Responses</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Status Code</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>200 Ok</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>403 Access Denied</td>
+                        <td>When the provided root key in Authorization header is invalid.</td>
+                    </tr>
+                    <tr>
+                        <td>500 Internal Server Error</td>
+                        <td>Mostly because of the database error. Check the log for root cause details.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-5 text-body-secondary">
+        <div class="row w-100">
+          <div class="col-3">
+            <a
+              class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+              href="/"
+              aria-label="Bootstrap"
+            >
+              <img src="../images/logo.png" alt="" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">Currently v1.0</li>
+            </ul>
+          </div>
+          <div class="col-6 offset-3 mb-3">
+            <div class="row">
+              <div class="col-2 mb-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                  <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col-6 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html"
+                      >Manual Install</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/explaining-config.html"
+                      >Configurations</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 mb-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/issues"
+                      target="_blank"
+                      rel="noopener"
+                      >Issues</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/discussions"
+                      target="_blank"
+                      rel="noopener"
+                      >Discussions</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://jwtplus.com/docs/contribute.html"
+                      target="_blank"
+                      >Contributions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="../js/bs.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/go.min.js"></script>
+  <script src="../js/languages/java.min.js"></script>
+  <script src="../js/languages/javascript.min.js"></script>
+  <script src="../js/languages/php.min.js"></script>
+  <script src="../js/languages/python.min.js"></script>
+  <script src="../js/languages/shell.min.js"></script>
+  <script src="../js/languages/json.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

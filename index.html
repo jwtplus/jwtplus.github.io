@@ -1,11 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWTPlus</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JWTPlus is an enterprise-ready platform designed to efficiently manage, secure, and optimize JWT tokens. It offers key rotation, active session tracking, automatic token cleanup, and seamless integration with your applications.">
+    <meta name="keywords" content="JWTPlus, JWT management, enterprise JWT, secure JWT tokens, token lifecycle management, JWT key rotation, active session tracking, JWT security, authentication tokens, token cleanup, JWT platform.">
+    <title>JWTPlus - Enterprise ready platform to manage JWT tokens</title>
+    <meta property="og:title" content="JWTPlus - Enterprise ready platform to manage JWT tokens"/>
+    <meta property="og:description" content="JWTPlus is an enterprise-ready platform designed to efficiently manage, secure, and optimize JWT tokens. It offers key rotation, active session tracking, automatic token cleanup, and seamless integration with your applications."/>
+    <meta property="og:url" content="https://jwtplus.com/"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="images/logo.png" alt="JWTPlus" height="50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="docs/index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/jwtplus/jwtplus">Github</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="p-5 text-center bg-body-tertiary rounded-3" style="margin-top:100px;">
+      <h1 class="text-body-emphasis mt-5">JWTPlus<br/>Enterprise ready platform to manage JWT tokens</h1>
+      <p class="col-lg-8 mx-auto fs-5 text-muted">
+        JWTPlus is the answer to the JWT struggle. It simplifies token management and security, letting you focus on what really matters - building your application with confidence and peace of mind.
+      </p>
+      <div class="d-inline-flex gap-2 my-5">
+        <a class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" href="https://jwtplus.com/docs/install-auto.html">
+          Installation
+        </a>
+        <a class="btn btn-outline-secondary btn-lg px-4 rounded-pill" href="https://jwtplus.com/docs/">
+          Read Docs
+        </a>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col mt-5">
+             
+              <p>Let's be honest - JWT is powerful, but it's not perfect. If you've worked with JWTs, you know the drill: complex setups, manual token revocation, cryptography headaches. And let's not forget the ever-growing list of security concerns that crop up every time you integrate JWT into a new project. Sound familiar?</p>
+              
+              <p>Here's the laundry list we've all had to deal with:</p>
+              
+              <ul>
+                <ol class="mb-3">1. Implementing strong cryptography for signing, verifying, and renewing tokens (because security is never simple).</ol>
+                <ol class="mb-3">2. Revoking authentication and refresh tokens to stop account abuse (easier said than done).</ol>
+                <ol class="mb-3">3. Ensuring refresh tokens are used only once (nobody wants a token reuse disaster).</ol>
+                <ol class="mb-3">4. Panic mode when a private key gets exposed, which means revoking all issued tokens (no one likes those late-night fixes).</ol>
+                <ol class="mb-3">5. Dealing with key rotation - transitioning old tokens to new ones while keeping your app secure.</ol>
+                <ol class="mb-3">6. Constantly upgrading JWT libraries in every new project (the struggle is real).</ol>
+                <ol class="mb-3">7. Trying to integrate JWT into legacy projects without the right libraries (and failing).</ol>
+                <ol class="mb-3">8. Doing the same security dance over and over again with every new project.</ol>
+                <ol class="mb-3">9. And, of course, not being able to oversee the number of active login sessions for any given user (how do you manage access without the right visibility?).</ol>
+              </ul>
+              
+              <p>JWTs are here to stay, but the process of managing them doesn't have to be this complicated. <b>JWTPlus</b> is the solution that solves all the pain points we've just listed - and more.</p>
+              
+              <p>We built JWTPlus in-house after facing the same challenges, and now it's open-source and ready for the world. Say goodbye to those endless manual steps and focus on building your application instead of worrying about JWT management.</p>
+              
+              <h2 class="my-4 p-1 border-bottom">What makes JWTPlus the solution you need?</h2>
+                <ul>
+                    <ol class="mb-3">
+                        <b>1. No Package Installation Needed:</b> JWTPlus is a microservice that exposes APIs for JWT management, meaning you don't need to install anything in your project. It integrates with any system, regardless of the language or framework, with ease.
+                    </ol>
+                    <ol class="mb-3">
+                      <b>2. Support for Multiple Projects:</b> Running several projects? Each one can have its own set of JWT rules, and JWTPlus gives you unique keys for every project to keep things secure.
+                    </ol>
+                    <ol class="mb-3">
+                      <b>3. Multiple Cryptography Algorithms:</b> Choose from a wide array of cryptographic algorithms <code>RS256</code>, <code>RS338</code>, <code>RS512</code>, <code>PS256</code>, <code>PS338</code>, <code>PS512</code>, <code>EC256</code>, <code>EC338</code>, <code>EC512</code> whatever fits your needs.
+                    </ol>
+                    <ol class="mb-3"><b>4. Automatic Key Rotation:</b> Set your preferred rotation time, and JWTPlus will handle the rest, automatically transitioning old tokens to new ones.</ol>
+                    <ol class="mb-3"><b>5. Revoke Single Tokens:</b> Got a rogue token? No problem. Revoke a single auth or refresh token to prevent further misuse - without affecting the rest of your app.</ol>
+                    <ol class="mb-3"><b>6. Revoke Private Keys:</b> One call is all it takes to revoke a private key - and invalidate every token signed with it - keeping your system secure when you need it most.</ol>
+                    <ol class="mb-3"><b>7. View Active Tokens:</b> Want full visibility into your user's active sessions? JWTPlus gives you a complete view of all active tokens associated with a single user, so you can monitor and manage access effectively.</ol>
+                    <ol class="mb-3"><b>8. High Performance & Scalability:</b> Designed for high availability, JWTPlus can horizontally scale across multiple servers, ensuring fast, reliable, and efficient JWT management even under heavy workloads.</ol>
+                </ul>
+              
+              <p>
+                JWTPlus is the answer to the JWT struggle. It simplifies token management and security, letting you focus on what really matters - building your application with confidence and peace of mind.
+              </p>
+              
+              
+              <h3 class="my-4 p-1 border-bottom">Security Reporting</h3>
+              
+              <p>If you find a security vulnerability, please do not open a public issue. Instead, email all details to hello@jwtplus.com</p>
+              
+              <h3 class="my-4 p-1 border-bottom">Commercial Support</h3>
+              
+              <p>For enterprise deployments, priority support, or custom integrations, contact us at hello@jwtplus.com</p>
+        </div>
+    </div>
+  </div>
+
+  <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-5 text-body-secondary">
+      <div class="row w-100">
+        <div class="col-3">
+          <a
+            class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+            href="/"
+            aria-label="Bootstrap"
+          >
+            <img src="../images/logo.png" alt="" />
+          </a>
+          <ul class="list-unstyled small">
+            <li class="mb-2">Currently v1.0</li>
+          </ul>
+        </div>
+        <div class="col-6 offset-3 mb-3">
+          <div class="row">
+            <div class="col-2 mb-3">
+              <h5>Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+              </ul>
+            </div>
+            <div class="col-6 mb-3">
+              <h5>Guides</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                </li>
+                <li class="mb-2">
+                  <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                </li>
+                <li class="mb-2">
+                  <a href="https://jwtplus.com/docs/install-auto.html"
+                    >Manual Install</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="https://jwtplus.com/docs/explaining-config.html"
+                    >Configurations</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-4 mb-3">
+              <h5>Community</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a
+                    href="https://github.com/jwtplus/jwtplus/issues"
+                    target="_blank"
+                    rel="noopener"
+                    >Issues</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="https://github.com/jwtplus/jwtplus/discussions"
+                    target="_blank"
+                    rel="noopener"
+                    >Discussions</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a
+                    href="https://jwtplus.com/docs/contribute.html"
+                    target="_blank"
+                    >Contributions</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="./js/bs.min.js"></script></body>
 </html>

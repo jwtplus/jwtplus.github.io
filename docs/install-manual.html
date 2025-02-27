@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore the benchmarks and insights on using RSA, RSA-PSS, and ECDSA algorithms for signing JWTs. Understand the trade-offs between security and performance for your use case." />
+    <meta name="keywords" content="JWT signing algorithms, RSA vs ECDSA, JWT security, JWT RSA-PSS, ECDSA performance, JWT algorithms explained, JWT signature benchmarks" />
+    <title>Manual Installation Guide for JWTPlus</title>
+    <meta property="og:title" content="Manual Installation Guide for JWTPlus"/>
+    <meta property="og:description" content="Explore the benchmarks and insights on using RSA, RSA-PSS, and ECDSA algorithms for signing JWTs. Understand the trade-offs between security and performance for your use case."/>
+    <meta property="og:url" content="https://jwtplus.com"/>
+    <meta property="og:image"content="https://jwtplus.com/images/logo.png"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/code.css" />
+    <link rel="stylesheet" href="../css/github-dark.min.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://jwtplus.com">
+          <img src="../images/logo.png" alt="JWTPlus" height="50px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Docs</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/jwtplus/jwtplus"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+      <div class="row w-100">
+        <div class="col mt-5 text-start">
+            <h1 class="text-center">Manual Installation Guide for JWTPlus</h1>
+            <p>This guide provides step-by-step instructions for manually installing JWTPlus on a Linux server. It covers installing dependencies like MySQL/MariaDB, configuring JWTPlus, and setting it up as a startup service using systemd.</p>
+
+            <div class="accordion" id="manual-install">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#requirment" aria-expanded="true" aria-controls="requirment">
+                        Step 1. System Requirements
+                    </button>
+                  </h2>
+                  <div id="requirment" class="accordion-collapse collapse show" data-bs-parent="#manual-install">
+                    <div class="accordion-body">
+                        Before proceeding, ensure your system meets the <a href="system-requirment.html">JWTPlus system requirements</a>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#database" aria-expanded="true" aria-controls="database">
+                        Step 2. Installing MySQL / MariaDB
+                      </button>
+                    </h2>
+                    <div id="database" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <h5>For MySQL</h5>
+                        <p>Step 1: Install MySQL Server</p>
+            
+                        <pre><code class="language-shell">sudo apt update && sudo apt install mysql-server -y  # For Debian/Ubuntu
+sudo yum install mysql-server -y  # For RHEL-based systems</code></pre>
+            
+                        <h5>Step 2: Secure the Database</h5>
+                        <pre><code class="language-shell">sudo mysql_secure_installation</code></pre>
+                        <p>Follow the prompts to set a root password and disable anonymous users.</p>
+            
+                        <h5>Step 3: Create a Database for JWTPlus</h5>
+                        <pre><code class="language-shell">mysql -u root -p</code></pre>
+                        <p>Inside the MySQL shell, execute:</p>
+                        <pre><code class="language-shell">CREATE DATABASE jwtplus;
+CREATE USER 'jwtplus_user'@'localhost' IDENTIFIED BY 'strongpassword';
+GRANT ALL PRIVILEGES ON jwtplus.* TO 'jwtplus_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;</code></pre>
+                        <p>Don't forget to set your database's username and password.</p>
+            
+                        <h5 class="my-4">For MariaDB</h5>
+                        <p>Install MariaDB using:</p>
+                        <pre><code class="language-shell">sudo apt update && sudo apt install mariadb-server -y  # Debian/Ubuntu
+sudo yum install mariadb-server -y  # RHEL-based</code></pre>
+                        <p>Follow the same steps as MySQL to configure security and create a database.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#install" aria-expanded="true" aria-controls="install">
+                        Step 3. Download & Install JWTPlus
+                      </button>
+                    </h2>
+                    <div id="install" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <h5>Step 1: Download the Latest Release</h5>
+                        <pre><code class="language-shell">wget https://your-download-link.com/jwtplus-latest.tar.gz</code></pre>
+                        <h5>Step 2: Extract the Files</h5>
+                        <pre><code class="language-shell">tar -xvzf jwtplus-latest.tar.gz -C /opt/jwtplus
+cd /opt/jwtplus</code></pre>
+                        <h5>Step 3: Set Executable Permissions</h5>
+                        <pre><code class="language-shell">chmod +x jwtplus</code></pre>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#configure" aria-expanded="true" aria-controls="configure">
+                        Step 4: Configure JWTPlus
+                      </button>
+                    </h2>
+                    <div id="configure" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <p>Step 1: Create the configuration file</p>
+                        <pre><code class="language-yaml">nano /opt/jwtplus/jwtplus.yaml</code></pre>
+                        <p>Step 2: Set the correct configurations in the config file</p>
+                        <pre><code class="language-yaml">debug: false
+server:
+    ip: 0.0.0.0
+    port: 2025
+db:
+    location: 127.0.0.1
+    port: 3306
+    username: jwtplus_user
+    password: strongpassword
+    dbname: jwtplus</code></pre>
+                <p>Don't forgot to add the correct information.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#import-tables" aria-expanded="true" aria-controls="import-tables">
+                        Step 5: Importing the tables inside the database
+                      </button>
+                    </h2>
+                    <div id="import-tables" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <p>By invoking the below command, the JWTPlus connects to the database using the provided configuration and creates all the tables automatically.</p>
+                        <p><b><u>After the successful table import, JWTPlus will create your root key. Save this somewhere because this is the first and last time the root key is shown.</u></b></p>
+                        <pre><code class="language-shell">/opt/jwtplus/jwtplus install</code></pre>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#service" aria-expanded="true" aria-controls="service">
+                        Step 6: Setting Up JWTPlus as a Startup Service
+                      </button>
+                    </h2>
+                    <div id="service" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <p>Step 1: Create a systemd Service File</p>
+                        <pre><code class="language-shell">nano /etc/systemd/system/jwtplus.service</code></pre>
+                        <p>Add the following:</p>
+                        <pre><code class="language-shell">[Unit]
+Description=JWTPlus Authentication Service
+After=network.target mysql.service
+
+[Service]
+ExecStart=/opt/jwtplus/jwtplus run
+Restart=always
+User=root
+WorkingDirectory=/opt/jwtplus
+
+[Install]
+WantedBy=multi-user.target
+                </code></pre>
+                <p>Save and exit.</p>
+                
+                <p>Step 2: Enable and Start the Service</p>
+                <pre><code class="language-shell">systemctl daemon-reload
+systemctl enable jwtplus
+systemctl start jwtplus</code></pre>
+                
+                <p>Step 3: Check Service Status</p>
+                <pre><code class="language-shell">systemctl status jwtplus</code></pre>
+                <p>If running correctly, the service should show an "Active" status.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cron" aria-expanded="true" aria-controls="cron">
+                        Step 7: Setting Up CRON for Automated Maintenance
+                      </button>
+                    </h2>
+                    <div id="cron" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <p>To ensure JWTPlus runs efficiently, you should add two CRON jobs that execute every minute:</p>
+                        <p>Open the CRON editor:</p>
+                        <pre><code class="language-shell">crontab -e</code></pre>
+                        <p>Add the following lines at the end of the file:</p>
+                        <pre><code class="language-shell">* * * * * /opt/jwtplus/jwtplus clean
+* * * * * /opt/jwtplus/jwtplus rotate</code></pre>
+                <p>Save and exit.</p>
+                <p>This ensures that expired tokens are regularly removed, and JWTPlus automatically rotates keys when the time arises.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#manage" aria-expanded="true" aria-controls="manage">
+                          Optional: Managing JWTPlus Service
+                      </button>
+                    </h2>
+                    <div id="manage" class="accordion-collapse collapse" data-bs-parent="#manual-install">
+                      <div class="accordion-body">
+                        <p>Start Service:</p> <pre><code class="language-shell">systemctl start jwtplus</code></pre>
+                        <p>Stop Service:</p> <pre><code class="language-shell">systemctl stop jwtplus</code></pre>
+                        <p>Restart Service:</p> <pre><code class="language-shell">systemctl restart jwtplus</code></pre>
+                        <p>View Logs:</p> <pre><code class="language-shell">journalctl -u jwtplus --follow</code></pre>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        
+        </div>
+    </div>
+  </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+      <div class="container py-4 py-md-5 text-body-secondary">
+        <div class="row w-100">
+          <div class="col-3">
+            <a
+              class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none"
+              href="/"
+              aria-label="Bootstrap"
+            >
+              <img src="../images/logo.png" alt="" />
+            </a>
+            <ul class="list-unstyled small">
+              <li class="mb-2">Currently v1.0</li>
+            </ul>
+          </div>
+          <div class="col-6 offset-3 mb-3">
+            <div class="row">
+              <div class="col-2 mb-3">
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="https://jwtplus.com">Home</a></li>
+                  <li class="mb-2"><a href="https://jwtplus.com/docs/">Docs</a></li>
+                </ul>
+              </div>
+              <div class="col-6 mb-3">
+                <h5>Guides</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/system-requirment.html">System Requirements</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html">Automated Install</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/install-auto.html"
+                      >Manual Install</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://jwtplus.com/docs/explaining-config.html"
+                      >Configurations</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 mb-3">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/issues"
+                      target="_blank"
+                      rel="noopener"
+                      >Issues</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://github.com/jwtplus/jwtplus/discussions"
+                      target="_blank"
+                      rel="noopener"
+                      >Discussions</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://jwtplus.com/docs/contribute.html"
+                      target="_blank"
+                      >Contributions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="../js/bs.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
+  <script src="../js/languages/shell.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
