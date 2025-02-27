@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://jwtplus.com/</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/install-auto.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/system-requirment.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/explaining-config.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/contribute.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/explaining-algorithm.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/install-manual.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-list-all.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-rotate-key.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-create.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-update.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-key-rotate.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-pki-rotate.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-flush-tokens.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/root-app-delete.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/health.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-get-info.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-get-public-key.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-create-signed-jwt.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-verify-signed-jwt.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-renew-signed-jwt.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-get-active-session.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jwtplus.com/docs/app-logout-session.html</loc>
+  <lastmod>2025-02-27T08:12:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
