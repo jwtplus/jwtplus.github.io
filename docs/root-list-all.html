@@ -149,7 +149,7 @@
           <div class="tab-content border-bottom border-start border-end rounded p-3" id="myTabContent">
               <div class="tab-pane fade show active" id="curl" role="tabpanel" aria-labelledby="home-tab">
                 <pre><code class="language-console">curl --request GET \
---url http://{{you-endpoint}}:{{your-port}}/root \
+--url http://{{you-endpoint}}:{{your-port}}/root/list \
 --header 'Authorization: {{root-key}}</code></pre>
               </div>
               <div class="tab-pane fade" id="node" role="tabpanel" aria-labelledby="profile-tab">
@@ -157,7 +157,7 @@
 
 const options = {
     method: 'GET',
-    url: 'http://{{you-endpoint}}:{{your-port}}/root',
+    url: 'http://{{you-endpoint}}:{{your-port}}/root/list',
     headers: {Authorization: '{{root-key}}'}
 };
 
@@ -170,7 +170,7 @@ request(options, function (error, response, body) {
               <div class="tab-pane fade" id="python" role="tabpanel" aria-labelledby="contact-tab">
                 <pre><code class="language-python">import requests
 
-url = "http://{{you-endpoint}}:{{your-port}}/root"
+url = "http://{{you-endpoint}}:{{your-port}}/root/list"
 
 headers = {"Authorization": "{{root-key}}"}
 
@@ -183,7 +183,7 @@ print(response.json())</code></pre>
                 <pre><code class="language-php">&lt;?php
 $client = new \GuzzleHttp\Client();
 
-$response = $client->request('GET', 'http://{{you-endpoint}}:{{your-port}}/root', [
+$response = $client->request('GET', 'http://{{you-endpoint}}:{{your-port}}/root/list', [
     'headers' => [
     'Authorization' => '{{root-key}}',
     ],
@@ -203,7 +203,7 @@ import (
 
 func main() {
 
-    url := "http://{{you-endpoint}}:{{your-port}}/root"
+    url := "http://{{you-endpoint}}:{{your-port}}/root/list"
 
     req, _ := http.NewRequest("GET", url, nil)
 
@@ -221,7 +221,7 @@ func main() {
               </div>
               <div class="tab-pane fade" id="java" role="tabpanel">
                 <pre><code class="language-java">AsyncHttpClient client = new DefaultAsyncHttpClient();
-client.prepare("GET", "http://{{you-endpoint}}:{{your-port}}/root")
+client.prepare("GET", "http://{{you-endpoint}}:{{your-port}}/root/list")
     .setHeader("Authorization", "{{root-key}}")
     .execute()
     .toCompletableFuture()
